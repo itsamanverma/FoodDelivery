@@ -1,31 +1,39 @@
 .food-display {
     margin-top: 30px;
+    padding: 0 15px; /* Prevents content from sticking to edges */
 }
 
 .food-display h2 {
-    font-size: max(2vw, 24px); /* Ensures a responsive heading */
+    font-size: clamp(24px, 2vw, 32px); /* More flexible heading size */
     font-weight: 600;
-    text-align: center; /* Center-aligns the title */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Improved readability */
 }
 
+/* Grid Layout */
 .food-display-list {
-    display: grid; /* Enables CSS Grid layout */
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Responsive grid */
-    margin-top: 30px;  
-    gap: 30px; /* Space between grid items */
-    row-gap: 50px; /* Increases vertical spacing */
-    padding: 0 10px; /* Adds slight padding to prevent edge sticking */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .food-display {
+        padding: 0 10px; /* Reduces padding for smaller screens */
+    }
+
     .food-display h2 {
-        font-size: max(3vw, 20px); /* Adjusts heading for smaller screens */
+        font-size: clamp(20px, 3vw, 28px);
+        margin-bottom: 15px;
     }
 
     .food-display-list {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusts column size for mobile */
-        gap: 20px; /* Reduces spacing for compact layout */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
         row-gap: 40px;
     }
 }
@@ -33,12 +41,12 @@
 /* Extra Small Devices (Phones) */
 @media (max-width: 480px) {
     .food-display-list {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Further reduces item width */
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 15px;
         row-gap: 30px;
     }
 
     .food-display h2 {
-        font-size: max(4vw, 18px); /* Smaller heading on very small screens */
+        font-size: clamp(18px, 4vw, 24px);
     }
 }
